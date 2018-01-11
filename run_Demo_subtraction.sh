@@ -5,7 +5,6 @@
 # The dataset is a subset of the JCVI data using Sendai virus.
 # The compute environment is the SGE grid at JCVI.
 
-SCRIPTDIR=/local/ifs2_projdata/8370/projects/DHSSDB/GitHubRepo/HostSubtractionDB/core
 SCRIPTDIR=$1
 echo "ASSUME CORE SCRIPT DIRECTORY IS ${SCRIPTDIR}"
 if [ -z "$1" ]
@@ -19,9 +18,12 @@ INDEX=SDB-HUH7                      # for the demo
 
 TRIMMER="run_trimmomatic.sh"
 BOWTIE_BUILD="/usr/local/bin/bowtie2-build"
-BOWTIE_ALIGN=/usr/local/bin/bowtie2
-SAMTOOLS=/usr/local/bin/samtools
-FILTER=fastq-filter-by-name.pl
+BOWTIE_BUILD=`which bowtie2-build`
+BOWTIE_ALIGN="/usr/local/bin/bowtie2"
+BOWTIE_ALIGN=`which bowtie2`
+SAMTOOLS="/usr/local/bin/samtools"
+SAMTOOLS=`which samtools`
+FILTER="fastq-filter-by-name.pl"
 
 date
 echo "Clean up any output from previous runs."
