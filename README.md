@@ -4,6 +4,17 @@ A host subtraction database for virus discovery in human cell line sequencing da
 ## SDB1.fasta.gz
 
 The SDB1 subtraction database designed for three human cell lines: Jurkat, HepG2, HuH7.
+Use GNU gunzip to extract the FASTA file.
+
+## Scripts
+
+Scripts for the analysis of data from an experiment on human cell lines infected with Sendai virus.
+
+* fastq-filter-by-name.pl - Reads FASTQ and list of names. Writes smaller FASTQ missing named reads. 
+* SendaiExperiment/run_trimmomatic.sh - Trimmed the reads.
+* SendaiExperiment/run_bowtie_align_to_sdb.sh - Mapped the reads to SDB.
+* SendaiExperiment/subtract_mapped_reads.sh - Create FASTQ of the unmapped reads. Invokes fastq-filter-by-name.pl
+* SendaiExperiment/generate_unmapped_reads.sh - Invoke subtract_mapped_reads on each set of reads.
 
 ## Demo
 
